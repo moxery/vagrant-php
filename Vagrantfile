@@ -21,8 +21,10 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "apt"
-    chef.add_recipe "apache2"
     chef.add_recipe "php"
+    chef.add_recipe "apache2"
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "streampub"
 
     # You may also specify custom JSON attributes:
     # chef.json = { :mysql_password => "foo" }
